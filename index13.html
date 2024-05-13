@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Mensaje al Pasar el Ratón</title>
+</head>
+<body>
+    <div id="elemento" style="width: 200px; height: 100px; background-color: lightblue;"></div>
+
+    <script>
+        const elemento = document.getElementById('elemento');
+
+        elemento.addEventListener('mouseover', function() {
+            alert('El ratón está sobre el elemento.');
+        });
+    </script>
+</body>
+</html>

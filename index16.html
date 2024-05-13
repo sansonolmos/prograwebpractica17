@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Memoria</title>
+    <style>
+        .card {
+            width: 100px;
+            height: 150px;
+            background-color: lightblue;
+            margin: 10px;
+            display: inline-block;
+            cursor: pointer;
+            text-align: center;
+            line-height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="juego">
+        <div class="card" onclick="seleccionarCarta(this)">1</div>
+        <div class="card" onclick="seleccionarCarta(this)">2</div>
+        <div class="card" onclick="seleccionarCarta(this)">3</div>
+        <div class="card" onclick="seleccionarCarta(this)">4</div>
+        <div class="card" onclick="seleccionarCarta(this)">1</div>
+        <div class="card" onclick="seleccionarCarta(this)">2</div>
+        <div class="card" onclick="seleccionarCarta(this)">3</div>
+        <div class="card" onclick="seleccionarCarta(this)">4</div>
+    </div>
+
+    <script>
+        let cartaAnterior = null;
+
+        function seleccionarCarta(carta) {
+            if (carta.classList.contains('seleccionada') || carta === cartaAnterior) return;
+
+            carta.classList.add('seleccionada');
+
+            if (!cartaAnterior) {
+                cartaAnterior = carta;
+            } else {
+                if (carta.textContent === cartaAnterior.textContent) {
+                    carta.style.backgroundColor = 'green';
+                    cartaAnterior.style.backgroundColor = 'green';
+                } else {
+                    setTimeout(function() {
+                        carta.classList.remove('seleccionada');
+                        cartaAnterior.classList.remove('seleccionada');
+                    }, 1000);
+                }
+
+                cartaAnterior = null;
+            }
+        }
+    </script>
+</body>
+</html>

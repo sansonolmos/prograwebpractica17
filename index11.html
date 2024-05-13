@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desplazamiento de Elemento</title>
+    <style>
+        #elemento {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="elemento"></div>
+    <script>
+        const elemento = document.getElementById('elemento');
+
+        document.addEventListener('keydown', function(event) {
+            const teclaPresionada = event.key;
+            let top = parseInt(elemento.style.top) || 0;
+            let left = parseInt(elemento.style.left) || 0;
+            const paso = 10; // Cantidad de píxeles que se moverá el elemento
+
+            if (teclaPresionada === 'ArrowUp') {
+                top -= paso;
+            } else if (teclaPresionada === 'ArrowDown') {
+                top += paso;
+            } else if (teclaPresionada === 'ArrowLeft') {
+                left -= paso;
+            } else if (teclaPresionada === 'ArrowRight') {
+                left += paso;
+            }
+
+            elemento.style.top = top + 'px';
+            elemento.style.left = left + 'px';
+        });
+    </script>
+</body>
+</html>

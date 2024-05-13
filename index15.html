@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar u Ocultar Elemento</title>
+    <style>
+        #elemento {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="mostrarBoton">Mostrar Elemento</button>
+    <button id="ocultarBoton">Ocultar Elemento</button>
+    <div id="elemento"></div>
+
+    <script>
+        const elemento = document.getElementById('elemento');
+        const mostrarBoton = document.getElementById('mostrarBoton');
+        const ocultarBoton = document.getElementById('ocultarBoton');
+
+        mostrarBoton.addEventListener('click', function() {
+            elemento.style.display = 'block';
+        });
+
+        ocultarBoton.addEventListener('click', function() {
+            elemento.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
